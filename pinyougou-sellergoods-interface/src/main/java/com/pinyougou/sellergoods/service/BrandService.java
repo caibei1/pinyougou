@@ -1,8 +1,7 @@
 package com.pinyougou.sellergoods.service;
 
 import java.util.List;
-
-import javax.naming.ldap.PagedResultsControl;
+import java.util.Map;
 
 import com.pinyougou.pojo.TbBrand;
 
@@ -32,4 +31,9 @@ public interface BrandService {
 	//按照条件查找
 	public PageResult findPage(TbBrand brand,int pageNum,int pageSize);
 	
+	/**
+	 * 品牌下拉框数据
+	 */
+	List<Map> selectOptionList();
+
 }
