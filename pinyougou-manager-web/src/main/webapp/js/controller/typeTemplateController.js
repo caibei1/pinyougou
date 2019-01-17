@@ -26,7 +26,10 @@ app.controller('typeTemplateController' ,function($scope,$controller,typeTemplat
 	$scope.findOne=function(id){				
 		typeTemplateService.findOne(id).success(
 			function(response){
-				$scope.entity= response;					
+				$scope.entity = response
+				$scope.entity.brandIds = JSON.parse($scope.entity.brandIds)	
+				$scope.entity.specIds = JSON.parse($scope.entity.specIds)
+				$scope.entity.customAttributeItems= JSON.parse($scope.entity.customAttributeItems);//转换扩展属性
 			}
 		);				
 	}
@@ -98,6 +101,16 @@ app.controller('typeTemplateController' ,function($scope,$controller,typeTemplat
 				$scope.specList={data:response}
 			}
 		)
+	}
+	
+	//增加扩展属性行
+	$scope.addTableRow=function(){
+		$scope.entity.customAttributeItems.push({});
+	}
+	
+	//删除行
+	$scope.deleTableRow=function(index){
+		$scope.entity.customAttributeItems.splice(index,1);
 	}
 	
 });	
