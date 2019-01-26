@@ -58,4 +58,7 @@ public interface SellerService {
 	 */
 	public PageResult findPage(TbSeller seller, int pageNum,int pageSize);
 	
+	//z商家审核
+	public void updateStatus(String sellerId,String sataus);
+	
 }
